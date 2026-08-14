@@ -55,7 +55,7 @@ MonoBehaviour:
     stage: 2
     requiredObjectID: 10
     isCompleted: 0
-  - taskDescription: "\u0423\u0432\u0456\u043C\u043A\u043D\u0443\u0442\u0438 \u0442\u0435\u043B\u0435\u0432\u0456\u0437\u043E\u0440"
+  - taskDescription: "\u0423\u0432\u0456\u043C\u043A\u043D\u0443\u0442\u0438 \u0440\u0430\u0434\u0456\u043E"
     stage: 3
     requiredObjectID: 11
     isCompleted: 0
