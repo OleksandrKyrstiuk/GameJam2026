@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public  class TaskManager : MonoBehaviour
+public class TaskManager : MonoBehaviour
 {
     [SerializeField] private TaskData taskData;
     [SerializeField] private TaskUI taskUI;
@@ -44,11 +44,6 @@ public  class TaskManager : MonoBehaviour
             return;
 
         Task currentTask = taskData.tasks[currentTaskIndex];
-
-        // TODO:
-        // ��� ������ ����� ������� ��������� ��������:
-        // �� ���������� ��'���, �� ���������� ����,
-
 
         if (objectID == currentTask.requiredObjectID)
         {
