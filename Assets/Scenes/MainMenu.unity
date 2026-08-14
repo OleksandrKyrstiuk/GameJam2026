@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 33027000}
   - component: {fileID: 33026999}
   - component: {fileID: 33026998}
+  - component: {fileID: 33027001}
   m_Layer: 5
   m_Name: InstructionButton
   m_TagString: Untagged
@@ -389,6 +390,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33026996}
   m_CullTransparentMesh: 1
+--- !u!114 &33027001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33026996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08cf95d2c2c119444aba9317b2fe4725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSound
+  hoverClip: {fileID: 0}
+  clickClip: {fileID: 8300000, guid: eb1e40a7712a6af41b20eca07436673f, type: 3}
+  volume: 1
 --- !u!1 &72108585
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +480,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72108585}
   m_CullTransparentMesh: 1
+--- !u!1 &112812687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 112812688}
+  - component: {fileID: 112812689}
+  m_Layer: 5
+  m_Name: UiAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &112812688
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112812687}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 740002322}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &112812689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112812687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515ea24992ed09743aae77baee8eb053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIAudioPlayer
+  source: {fileID: 0}
+  outputGroup: {fileID: -7073973715572588415, guid: fe46ed8359acf9d4a93af11e9eb44409, type: 2}
 --- !u!1 &370995556
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +679,7 @@ GameObject:
   - component: {fileID: 552482711}
   - component: {fileID: 552482710}
   - component: {fileID: 552482709}
+  - component: {fileID: 552482712}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -734,6 +801,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552482707}
   m_CullTransparentMesh: 1
+--- !u!114 &552482712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552482707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08cf95d2c2c119444aba9317b2fe4725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSound
+  hoverClip: {fileID: 0}
+  clickClip: {fileID: 8300000, guid: eb1e40a7712a6af41b20eca07436673f, type: 3}
+  volume: 1
 --- !u!1 &573182821
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +964,7 @@ GameObject:
   - component: {fileID: 628363086}
   - component: {fileID: 628363085}
   - component: {fileID: 628363084}
+  - component: {fileID: 628363087}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -963,6 +1046,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &628363087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628363083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1 &740002318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,6 +1191,7 @@ RectTransform:
   - {fileID: 1890216591}
   - {fileID: 858522705}
   - {fileID: 1165770587}
+  - {fileID: 112812688}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1527,6 +1655,7 @@ GameObject:
   - component: {fileID: 1397510077}
   - component: {fileID: 1397510076}
   - component: {fileID: 1397510075}
+  - component: {fileID: 1397510078}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1648,6 +1777,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397510073}
   m_CullTransparentMesh: 1
+--- !u!114 &1397510078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397510073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08cf95d2c2c119444aba9317b2fe4725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSound
+  hoverClip: {fileID: 0}
+  clickClip: {fileID: 8300000, guid: eb1e40a7712a6af41b20eca07436673f, type: 3}
+  volume: 1
 --- !u!1 &1890216590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,6 +1804,7 @@ GameObject:
   - component: {fileID: 1890216594}
   - component: {fileID: 1890216593}
   - component: {fileID: 1890216592}
+  - component: {fileID: 1890216595}
   m_Layer: 5
   m_Name: 'StartButton '
   m_TagString: Untagged
@@ -1781,6 +1926,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890216590}
   m_CullTransparentMesh: 1
+--- !u!114 &1890216595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890216590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08cf95d2c2c119444aba9317b2fe4725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSound
+  hoverClip: {fileID: 0}
+  clickClip: {fileID: 8300000, guid: eb1e40a7712a6af41b20eca07436673f, type: 3}
+  volume: 1
 --- !u!1 &1930261309
 GameObject:
   m_ObjectHideFlags: 0

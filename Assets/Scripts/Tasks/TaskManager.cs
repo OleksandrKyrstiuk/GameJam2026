@@ -1,18 +1,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaskManager : MonoBehaviour
+public  class TaskManager : MonoBehaviour
 {
     [SerializeField] private TaskData taskData;
     [SerializeField] private TaskUI taskUI;
+    [SerializeField] private StopwatchTimer stopwatch;
+    [SerializeField] private ResultsPanelUI resultsPanel;
+
+    public static TaskManager Instance { get; private set; }
 
     private int currentTaskIndex;
+    private int mistakesCount;
+
+    public int MistakesCount => mistakesCount;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
         currentTaskIndex = 0;
 
         UpdateTaskUI();
+    }
+
+    // DEBUG: press F10 in Play mode to instantly finish all tasks
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F10) && currentTaskIndex < taskData.tasks.Count)
+        {
+            currentTaskIndex = taskData.tasks.Count - 1;
+
+            CompleteCurrentTask();
+        }
     }
 
     public void CheckObject(string objectID)
@@ -23,9 +46,9 @@ public class TaskManager : MonoBehaviour
         Task currentTask = taskData.tasks[currentTaskIndex];
 
         // TODO:
-        // Тут пізніше можна зробити додаткову перевірку:
-        // чи правильний об'єкт, чи правильний етап,
-        // чи виконані необхідні умови тощо.
+        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:
+        // пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ,
+
 
         if (objectID == currentTask.requiredObjectID)
         {
@@ -33,6 +56,8 @@ public class TaskManager : MonoBehaviour
         }
         else
         {
+            mistakesCount++;
+
             Debug.Log($"Wrong object! Required: {currentTask.requiredObjectID}");
         }
     }
@@ -88,9 +113,18 @@ public class TaskManager : MonoBehaviour
     {
         Debug.Log("ALL TASKS COMPLETED!");
 
-        // TODO:
-        // Тут можна завершити гру або перейти
-        // до наступного етапу.
+        float finalTime = 0f;
+
+        if (stopwatch != null)
+        {
+            stopwatch.StopTimer();
+            finalTime = stopwatch.Elapsed;
+        }
+
+        if (resultsPanel != null)
+            resultsPanel.Show(finalTime, mistakesCount, taskData.tasks.Count);
+        else
+            Debug.LogWarning("Results Panel is not assigned in TaskManager!");
     }
 
     // TEMPORARY UI TEST
