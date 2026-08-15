@@ -28,12 +28,21 @@ public class GameUI : MonoBehaviour
             pausePanel.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (!isPaused && Input.GetKeyDown(KeyCode.Escape))
+            OpenPause();
+    }
+
     public void OpenPause()
     {
         isPaused = true;
         pausePanel.SetActive(true);
 
         Time.timeScale = 0f;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void ResumeGame()
@@ -42,6 +51,9 @@ public class GameUI : MonoBehaviour
         pausePanel.SetActive(false);
 
         Time.timeScale = 1f;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void ReturnToMenu()

@@ -7,7 +7,7 @@ public class Interactable : MonoBehaviour
 
     public string PromptText => string.IsNullOrEmpty(promptText) ? objectID : promptText;
 
-    public void Interact()
+    public virtual void Interact()
     {
         if (TaskManager.Instance != null)
             TaskManager.Instance.CheckObject(objectID);
