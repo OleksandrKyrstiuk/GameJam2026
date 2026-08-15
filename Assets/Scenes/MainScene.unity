@@ -139,21 +139,6 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   openClip: {fileID: 8300000, guid: c339b1c579d4ead45bda769bf022ed49, type: 3}
   closeClip: {fileID: 8300000, guid: 11bcf1beba0b03a40905a3920e95a3f3, type: 3}
---- !u!114 &66136151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66136147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 150cf7940ab0e6c4bbaf184a87998a4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DoorController
-  audioSource: {fileID: 0}
-  openClip: {fileID: 0}
-  closeClip: {fileID: 0}
 --- !u!1 &87259178 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3860877006211331973, guid: 2b3df08c42d72664ba63de29924eac7e, type: 3}
@@ -259,21 +244,6 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   openClip: {fileID: 8300000, guid: c339b1c579d4ead45bda769bf022ed49, type: 3}
   closeClip: {fileID: 8300000, guid: 11bcf1beba0b03a40905a3920e95a3f3, type: 3}
---- !u!114 &273259047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273259043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 150cf7940ab0e6c4bbaf184a87998a4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DoorController
-  audioSource: {fileID: 0}
-  openClip: {fileID: 0}
-  closeClip: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +417,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: -0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 914.18, y: 457.81}
+  m_AnchoredPosition: {x: 914.18, y: 418}
   m_SizeDelta: {x: -1828.3567, y: -878.8702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &406201380
@@ -2181,21 +2151,6 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   openClip: {fileID: 8300000, guid: c339b1c579d4ead45bda769bf022ed49, type: 3}
   closeClip: {fileID: 8300000, guid: 11bcf1beba0b03a40905a3920e95a3f3, type: 3}
---- !u!114 &1168570354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168570350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 150cf7940ab0e6c4bbaf184a87998a4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DoorController
-  audioSource: {fileID: 0}
-  openClip: {fileID: 0}
-  closeClip: {fileID: 0}
 --- !u!1 &1169895097
 GameObject:
   m_ObjectHideFlags: 0
@@ -3596,7 +3551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerFootsteps
   audioSource: {fileID: 1724443581}
   footstepClips:
-  - {fileID: 8300000, guid: 008ca0dbf7becd645a3b54a52af879c5, type: 3}
+  - {fileID: 8300000, guid: dcaa6bf3cf895914a9bf96476e31444d, type: 3}
   stepInterval: 0.5
 --- !u!82 &1724443581
 AudioSource:
@@ -4134,21 +4089,6 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   openClip: {fileID: 8300000, guid: c339b1c579d4ead45bda769bf022ed49, type: 3}
   closeClip: {fileID: 8300000, guid: 11bcf1beba0b03a40905a3920e95a3f3, type: 3}
---- !u!114 &2068611832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2068611828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 150cf7940ab0e6c4bbaf184a87998a4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DoorController
-  audioSource: {fileID: 0}
-  openClip: {fileID: 0}
-  closeClip: {fileID: 0}
 --- !u!1001 &2095213558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5343,27 +5283,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5847734735542503934, guid: 2b3df08c42d72664ba63de29924eac7e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1168570352}
-    - targetCorrespondingSourceObject: {fileID: 5847734735542503934, guid: 2b3df08c42d72664ba63de29924eac7e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1168570354}
     - targetCorrespondingSourceObject: {fileID: 1614306361624867805, guid: 2b3df08c42d72664ba63de29924eac7e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 273259045}
-    - targetCorrespondingSourceObject: {fileID: 1614306361624867805, guid: 2b3df08c42d72664ba63de29924eac7e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 273259047}
     - targetCorrespondingSourceObject: {fileID: 413627666562506360, guid: 2b3df08c42d72664ba63de29924eac7e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 66136149}
-    - targetCorrespondingSourceObject: {fileID: 413627666562506360, guid: 2b3df08c42d72664ba63de29924eac7e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 66136151}
     - targetCorrespondingSourceObject: {fileID: 3173126953722063491, guid: 2b3df08c42d72664ba63de29924eac7e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2068611830}
-    - targetCorrespondingSourceObject: {fileID: 3173126953722063491, guid: 2b3df08c42d72664ba63de29924eac7e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2068611832}
     - targetCorrespondingSourceObject: {fileID: 7653896831226357579, guid: 2b3df08c42d72664ba63de29924eac7e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2097592203}
