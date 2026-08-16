@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AnimationInteractable : Interactable
@@ -8,43 +9,117 @@ public class AnimationInteractable : Interactable
     [SerializeField] private AnimationClip closeClip;
     [SerializeField] private bool playOnce = true;
 
+    [Header("Object Toggle Target (light etc.)")]
+    [SerializeField] private GameObject toggleObject;
+    [SerializeField] private bool startToggledOn = true;
+
     [Header("Task")]
     [SerializeField] private bool countAsTask = true;
 
+    [Header("Revert on wrong timing")]
+    [SerializeField] private bool revertOnWrongTask = true;
+    [SerializeField] private float autoRevertDelay = 1.5f;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioToStop;
+    [SerializeField] private AudioClip pressClip;
+    [SerializeField] private AudioSource pressAudioSource;
+    [SerializeField] private bool audioOnce = true;
+
     private bool isOpen;
     private bool alreadyUsed;
+    private bool audioStopped;
+    private Coroutine revertRoutine;
 
-    public override void Interact()
+    private void Start()
     {
-        if (countAsTask && !(playOnce && alreadyUsed))
-            base.Interact();
-
-        PlayAnimation();
+        if (toggleObject != null && startToggledOn)
+            isOpen = true;
     }
 
-    private void PlayAnimation()
+    public override bool Interact()
     {
-        if (targetAnimation == null)
+        bool taskDone = false;
+
+        if (countAsTask && !(playOnce && alreadyUsed))
+            taskDone = base.Interact();
+
+        bool animPlayed = PlayAnimation();
+        HandleAudio();
+
+        if (animPlayed && revertOnWrongTask && countAsTask && !taskDone)
         {
-            Debug.LogWarning($"AnimationInteractable on '{gameObject.name}': Target Animation is not assigned!", this);
-            return;
+            if (revertRoutine != null)
+                StopCoroutine(revertRoutine);
+
+            revertRoutine = StartCoroutine(RevertAfterDelay());
+        }
+        else if (animPlayed && revertRoutine != null)
+        {
+            StopCoroutine(revertRoutine);
+            revertRoutine = null;
         }
 
-        if (playOnce && alreadyUsed)
-            return;
+        return taskDone;
+    }
 
-        AnimationClip clip = isOpen ? closeClip : openClip;
+    private IEnumerator RevertAfterDelay()
+    {
+        AnimationClip playedClip = isOpen ? closeClip : openClip;
 
-        if (clip == null)
+        float wait = autoRevertDelay;
+
+        if (playedClip != null)
+            wait += playedClip.length;
+
+        yield return new WaitForSeconds(wait);
+
+        PlayAnimation(ignoreOnceLock: true);
+        alreadyUsed = false;
+
+        revertRoutine = null;
+    }
+
+    private void HandleAudio()
+    {
+        if (audioToStop != null && (!audioOnce || !audioStopped))
         {
-            Debug.LogWarning($"AnimationInteractable on '{gameObject.name}': {(isOpen ? "Close" : "Open")} Clip is not assigned!", this);
-            return;
+            audioToStop.Stop();
+            audioStopped = true;
         }
 
-        targetAnimation.AddClip(clip, clip.name);
-        targetAnimation.Play(clip.name);
+        if (pressClip != null && pressAudioSource != null)
+            pressAudioSource.PlayOneShot(pressClip);
+    }
+
+    private bool PlayAnimation(bool ignoreOnceLock = false)
+    {
+        if (!ignoreOnceLock && playOnce && alreadyUsed)
+            return false;
+
+        bool hasAnimation = targetAnimation != null && (isOpen ? closeClip != null : openClip != null);
+        bool hasToggle = toggleObject != null;
+
+        if (!hasAnimation && !hasToggle)
+        {
+            Debug.LogWarning($"AnimationInteractable on '{gameObject.name}': nothing to do! Assign Target Animation or Toggle Object.", this);
+            return false;
+        }
+
+        if (hasAnimation)
+        {
+            AnimationClip clip = isOpen ? closeClip : openClip;
+
+            targetAnimation.AddClip(clip, clip.name);
+            targetAnimation.Play(clip.name);
+        }
 
         isOpen = !isOpen;
         alreadyUsed = true;
+
+        if (hasToggle)
+            toggleObject.SetActive(isOpen);
+
+        return true;
     }
 }

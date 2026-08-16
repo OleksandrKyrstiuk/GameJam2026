@@ -7,11 +7,12 @@ public class Interactable : MonoBehaviour
 
     public string PromptText => string.IsNullOrEmpty(promptText) ? objectID : promptText;
 
-    public virtual void Interact()
+    public virtual bool Interact()
     {
         if (TaskManager.Instance != null)
-            TaskManager.Instance.CheckObject(objectID);
-        else
-            Debug.LogWarning("TaskManager not found in scene!");
+            return TaskManager.Instance.CheckObject(objectID);
+
+        Debug.LogWarning("TaskManager not found in scene!");
+        return false;
     }
 }

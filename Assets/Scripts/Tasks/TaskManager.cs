@@ -38,22 +38,26 @@ public class TaskManager : MonoBehaviour
         }
     }
 
-    public void CheckObject(string objectID)
+    public bool CheckObject(string objectID)
     {
         if (currentTaskIndex >= taskData.tasks.Count)
-            return;
+            return false;
 
         Task currentTask = taskData.tasks[currentTaskIndex];
 
         if (objectID == currentTask.requiredObjectID)
         {
             CompleteCurrentTask();
+
+            return true;
         }
         else
         {
             mistakesCount++;
 
             Debug.Log($"Wrong object! Required: {currentTask.requiredObjectID}");
+
+            return false;
         }
     }
 

@@ -1,7 +1,14 @@
+using TMPro;
 using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
+    [Header("Input")]
+    [SerializeField] private KeyCode doorKey = KeyCode.F;
+
+    [Header("UI")]
+    [SerializeField] private TMP_Text promptText;
+
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip openClip;
@@ -20,18 +27,28 @@ public class DoorController : MonoBehaviour
 
         if (audioSource == null)
             audioSource = GetComponentInParent<AudioSource>();
+
+        UpdatePrompt();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
+        {
             playerInZone = true;
+
+            UpdatePrompt();
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
+        {
             playerInZone = false;
+
+            UpdatePrompt();
+        }
     }
 
     private void Update()
@@ -39,7 +56,7 @@ public class DoorController : MonoBehaviour
         if (Time.timeScale == 0f)
             return;
 
-        if (Input.GetKeyDown(KeyCode.E) && playerInZone && !doorAnim.isPlaying)
+        if (Input.GetKeyDown(doorKey) && playerInZone && !doorAnim.isPlaying)
         {
             doorOpened = !doorOpened;
 
@@ -49,7 +66,23 @@ public class DoorController : MonoBehaviour
 
             if (doorCollider != null)
                 doorCollider.enabled = !doorOpened;
+
+            UpdatePrompt();
         }
+    }
+
+    private void UpdatePrompt()
+    {
+        if (promptText == null)
+            return;
+
+        if (!playerInZone)
+        {
+            promptText.text = "";
+            return;
+        }
+
+        promptText.text = $"[{doorKey}] {(doorOpened ? "Закрити двері" : "Відкрити двері")}";
     }
 
     private void PlaySound(AudioClip clip)
