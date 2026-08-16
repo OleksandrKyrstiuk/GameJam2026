@@ -22,7 +22,6 @@ public class HintUI : MonoBehaviour
     private void Awake()
     {
         canvasGroup.alpha = 0f;
-        hintPanel.SetActive(false);
     }
 
     public void ShowHint(string message)

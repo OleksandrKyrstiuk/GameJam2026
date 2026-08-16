@@ -3485,7 +3485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3685453365174890550, guid: 8634cc873ed89354dbf7d05968209c83, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1026.6661
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3685453365174890550, guid: 8634cc873ed89354dbf7d05968209c83, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3505,11 +3505,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3685453365174890550, guid: 8634cc873ed89354dbf7d05968209c83, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 341.4336
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 3685453365174890550, guid: 8634cc873ed89354dbf7d05968209c83, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -540
+      value: -336
       objectReference: {fileID: 0}
     - target: {fileID: 3685453365174890550, guid: 8634cc873ed89354dbf7d05968209c83, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3526,6 +3526,10 @@ PrefabInstance:
     - target: {fileID: 4411596069763039964, guid: 8634cc873ed89354dbf7d05968209c83, type: 3}
       propertyPath: m_Name
       value: PhrasePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4411596069763039964, guid: 8634cc873ed89354dbf7d05968209c83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
