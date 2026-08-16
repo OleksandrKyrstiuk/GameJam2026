@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class TaskManager : MonoBehaviour
@@ -7,7 +8,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private TaskUI taskUI;
     [SerializeField] private StopwatchTimer stopwatch;
     [SerializeField] private ResultsPanelUI resultsPanel;
-
+    [SerializeField] private HintUI hintUI;
     public static TaskManager Instance { get; private set; }
 
     private int currentTaskIndex;
@@ -65,7 +66,20 @@ public class TaskManager : MonoBehaviour
     {
         Debug.Log($"Task completed: {taskData.tasks[currentTaskIndex].taskDescription}");
 
+        TaskStage completedStage = taskData.tasks[currentTaskIndex].stage;
+
         currentTaskIndex++;
+
+        // Перевіряємо, чи почався новий етап
+        if (currentTaskIndex < taskData.tasks.Count)
+        {
+            TaskStage nextStage = taskData.tasks[currentTaskIndex].stage;
+
+            if (completedStage != nextStage)
+            {
+                ShowStageHint(nextStage);
+            }
+        }
 
         UpdateTaskUI();
 
@@ -130,5 +144,27 @@ public class TaskManager : MonoBehaviour
     public void TestObject(string objectID)
     {
         CheckObject(objectID);
+    }
+
+    private void ShowStageHint(TaskStage nextStage)
+    {
+        switch (nextStage)
+        {
+            case TaskStage.Bathroom:
+                hintUI.ShowHint("Зуби самі себе не почистять.");
+                break;
+
+            case TaskStage.Kitchen:
+                hintUI.ShowHint("Кава сама себе не зробить.");
+                break;
+
+            case TaskStage.LivingRoom:
+                hintUI.ShowHint("Здається одяг залишився у вітальні");
+                break;
+
+            case TaskStage.Hallway:
+                hintUI.ShowHint("Схоже, час вже зибратись і на вихід.");
+                break;
+        }
     }
 }
